@@ -27,6 +27,7 @@ library:
   dependencies:
   - ghc
   - ghc-paths
+  - ghc-boot-th
 
 executables:
   ghcapi-sample-exe:
