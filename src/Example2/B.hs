@@ -1,4 +1,4 @@
 --B.hs
-module B where
+module Example2.B where
 
 main = print "Hello, World!"

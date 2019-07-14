@@ -28,7 +28,7 @@ example =
         target <- guessTarget targetFile Nothing
         setTargets [target]
         load LoadAllTargets
-        modSum <- getModSummary $ mkModuleName "B"
+        modSum <- getModSummary $ mkModuleName "Example2.B"
         p <- parseModule modSum
         t <- typecheckModule p
         d <- desugarModule t
