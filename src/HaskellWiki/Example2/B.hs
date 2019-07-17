@@ -1,4 +1,4 @@
 --B.hs
-module Example2.B where
+module HaskellWiki.Example2.B where
 
 main = print "Hello, World!"

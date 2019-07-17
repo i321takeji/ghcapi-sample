@@ -1,5 +1,5 @@
 -- 参考: https://wiki.haskell.org/GHC/As_a_library
-module Example.Simple where
+module HaskellWiki.Example1.Simple where
 
 import GHC
 import GHC.Paths ( libdir )

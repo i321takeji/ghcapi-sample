@@ -1,7 +1,7 @@
 --A.hs
 --invoke: ghci -package ghc A.hs
 
-module Example2.A where
+module HaskellWiki.Example2.A where
 
 import GHC
 import Outputable
@@ -28,7 +28,7 @@ example =
         target <- guessTarget targetFile Nothing
         setTargets [target]
         load LoadAllTargets
-        modSum <- getModSummary $ mkModuleName "Example2.B"
+        modSum <- getModSummary $ mkModuleName "HaskellWiki.Example2.B"
         p <- parseModule modSum
         t <- typecheckModule p
         d <- desugarModule t

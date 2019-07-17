@@ -1,4 +1,4 @@
-module Example3.Interactive where
+module HaskellWiki.Example3.Interactive where
 
 import GHC
 import GhcMonad
