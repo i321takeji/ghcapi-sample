@@ -11,12 +11,22 @@ targetFile = "sample.hs"
 printCoreModule :: IO ()
 printCoreModule = do
   dflags <- runGhc (Just libdir) getSessionDynFlags
-  coreProg <- getCoreModule
-  putStrLn "=== Core Program ==="
-  putStrLn $ showSDoc dflags $ ppr coreProg
+  cm <- getCoreModule
+  let pshow x = showSDoc dflags $ ppr x
+  putStrLn $ unlines [ "==== cm_module :: !Module ===="
+                     , pshow $ cm_module cm
+                     , ""
+                     , "==== cm_types :: !HscTypes.TypeEnv ===="
+                     , pshow $ cm_types cm
+                     , ""
+                     , "==== cm_binds :: CoreProgram ===="
+                     , pshow $ cm_binds cm
+                     , ""
+                     , "==== cm_safe :: SafeHaskellMode ===="
+                     , pshow $ cm_safe cm
+                     ]
 
-getCoreModule :: IO CoreProgram
+getCoreModule :: IO CoreModule
 getCoreModule = runGhc (Just libdir) $ do
   getSessionDynFlags >>= setSessionDynFlags
-  cm <- compileToCoreModule targetFile
-  return $ cm_binds cm
+  compileToCoreModule targetFile
