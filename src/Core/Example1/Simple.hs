@@ -9,12 +9,12 @@ import Outputable
 targetFile = "sample.hs"
 
 printCoreModule = do
-  (dflags, core) <- testCoreModule
-  putStrLn $ showSDoc dflags $ ppr core
+  dflags <- runGhc (Just libdir) getSessionDynFlags
+  coreProg <- getCoreModule
+  putStrLn "=== Core Program ==="
+  putStrLn $ showSDoc dflags $ ppr coreProg
 
-testCoreModule = runGhc (Just libdir) $ do
-  dflags <- getSessionDynFlags
-  setSessionDynFlags dflags
+getCoreModule = runGhc (Just libdir) $ do
+  getSessionDynFlags >>= setSessionDynFlags
   cm <- compileToCoreModule targetFile
-  return $ (dflags, cm_binds cm)
---  return $ showSDoc dflags $ ppr $ cm_binds cm
+  return $ cm_binds cm

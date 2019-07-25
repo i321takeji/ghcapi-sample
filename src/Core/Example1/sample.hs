@@ -1,3 +1,6 @@
-main = return $ f 10
+module Foo where
+
+main :: IO ()
+main = print $ f 10
 
 f x = x
