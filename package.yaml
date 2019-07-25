@@ -28,6 +28,7 @@ library:
   - ghc
   - ghc-paths
   - ghc-boot-th
+  - containers
 
 executables:
   ghcapi-sample-exe:
