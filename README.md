@@ -36,7 +36,7 @@ GHC API の使い方をお勉強．
     main = print "Hello, World!"})
     ```
     - [その3](/src/HaskellWiki/Example3/)
-- [Core を出力するだけ](/src/Core/Example1/)
+- [Core を出力するだけ](/src/Core/Example1/) (対象ファイル, src/Core/Example1/sample.hs)
     ```sh
     $ stack repl src/Core/Example1/Simple.hs
     ```
@@ -68,7 +68,7 @@ GHC API の使い方をお勉強．
     ==== cm_safe :: SafeHaskellMode ====
     Safe
     ```
-- [STG を出力するだけ](/src/Stg/Example1/)
+- [STG を出力するだけ](/src/Stg/Example1/) (対象ファイル, src/Stg/Example1/sample.hs)
     ```bash
     $ stack repl src/Core/Example1/Simple.hs
     ```
