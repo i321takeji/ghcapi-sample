@@ -11,7 +11,7 @@ import GHC.Paths ( libdir )
 --GHC.Paths is available via cabal install ghc-paths
  
 import DynFlags
-targetFile = "B.hs"
+targetFile = "src/HaskellWiki/Example2/B.hs"
 
 main :: IO ()
 main = do

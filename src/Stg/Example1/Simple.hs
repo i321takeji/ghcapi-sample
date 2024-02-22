@@ -14,7 +14,7 @@ import Data.List              ( find )
 import Data.Set               ( Set )
 import Control.Monad.IO.Class ( liftIO )
 
-targetFile = "sample.hs"
+targetFile = "src/Stg/Example1/sample.hs"
 
 printStg :: IO ()
 printStg = do

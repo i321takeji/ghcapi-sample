@@ -6,7 +6,7 @@ import DynFlags
 import CoreSyn
 import Outputable
 
-targetFile = "sample.hs"
+targetFile = "src/Core/Example1/sample.hs"
 
 printCoreModule :: IO ()
 printCoreModule = do

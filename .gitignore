@@ -1,3 +1,5 @@
 .stack-work/
 ghcapi-sample.cabal
 *~
+*.o
+*.hi
