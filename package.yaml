@@ -17,8 +17,8 @@ dependencies:
 
 executables:
   haskellwiki-ex1:
-    main: Simple.hs
-    source-dirs: src/HaskellWiki/Example1
+    main: example1.hs
+    source-dirs: src/haskellwiki/example1
     dependencies:
       - ghc
       - ghc-paths
@@ -29,7 +29,7 @@ executables:
 
   haskellwiki-ex2:
     main: A.hs
-    source-dirs: src/HaskellWiki/Example2
+    source-dirs: src/haskellwiki/example2
     when:
       - condition: false
         other-modules: B
@@ -44,8 +44,8 @@ executables:
       - -main-is A
 
   haskellwiki-ex3:
-    main: Interactive.hs
-    source-dirs: src/HaskellWiki/Example3
+    main: example3.hs
+    source-dirs: src/haskellwiki/example3
     dependencies:
       - ghc
       - ghc-paths
@@ -55,8 +55,8 @@ executables:
       - -with-rtsopts=-N
 
   core-ex1:
-    main: Simple.hs
-    source-dirs: src/Core/Example1
+    main: example1.hs
+    source-dirs: src/core/example1
     dependencies:
       - ghc
       - ghc-paths
@@ -66,8 +66,8 @@ executables:
       - -with-rtsopts=-N
 
   stg-ex1:
-    main: Simple.hs
-    source-dirs: src/Stg/Example1
+    main: example1.hs
+    source-dirs: src/stg/example1
     dependencies:
       - ghc
       - ghc-paths

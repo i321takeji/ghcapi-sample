@@ -11,15 +11,15 @@ GHC API の使い方をお勉強．
 ## サンプルと実行例
 
 - HaskellWiki に載っていたサンプル
-    - [その1](/src/HaskellWiki/Example1/)：`ghc --make` と同じことを行うプログラム
+    - [その1](/src/haskellwiki/example1/example1.hs)：`ghc --make` と同じことを行うプログラム
         ```sh
         $ stack run haskellwiki-ex1
         ```
         ```sh
-        $ ./src/HaskellWiki/Example1/test_main
+        $ ./src/haskellwiki/example1/test_main
         Hello GHC API!
         ```
-    - [その2](/src/HaskellWiki/Example2/)：`parseModule`, `typecheckModule`, `desugarModule`, `getNamesInScope`, `getModuleGraph` を呼び出すプログラム
+    - [その2](/src/haskellwiki/example2/)：`parseModule`, `typecheckModule`, `desugarModule`, `getNamesInScope`, `getModuleGraph` を呼び出すプログラム
         ```
         $ stack run haskellwiki-ex2
         module B where
@@ -30,13 +30,13 @@ GHC API の使い方をお勉強．
         {$trModule = Module (TrNameS "main"#) (TrNameS "B"#),
         main = print "Hello, World!"}
         ```
-    - [その3](/src/HaskellWiki/Example3/)：モジュール (`sample.hs`) をロードした後，GHCi のように対話的に文 (`mul (add 2 3) 4`) を実行
+    - [その3](/src/haskellWiki/example3/example3.hs)：モジュール (`sample.hs`) をロードした後，GHCi のように対話的に文 (`mul (add 2 3) 4`) を実行
         ```sh
         $ stack run haskellwiki-ex3
         20
         20
         ```
-- [Core を出力するだけ](/src/Core/Example1/) (対象ファイル [/src/Core/Example1/sample.hs](/src/Core/Example1/sample.hs))
+- [Core を出力するだけ](/src/core/example1/example1.hs) (対象ファイル [/src/core/example1/sample.hs](/src/core/example1/sample.hs))
     ```
     $ stack run core-ex1
     ==== cm_module :: !Module ====
@@ -65,7 +65,7 @@ GHC API の使い方をお勉強．
     ==== cm_safe :: SafeHaskellMode ====
     Safe
     ```
-- [STG を出力するだけ](/src/Stg/Example1/) (対象ファイル, [/src/Stg/Example1/sample.hs](/src/Stg/Example1/sample.hs))
+- [STG を出力するだけ](/src/stg/example1/example1.hs) (対象ファイル, [/src/stg/example1/sample.hs](/src/stg/example1/sample.hs))
     ```
     $ stack run stg-ex1
     [sat_s2C2 :: forall p. p -> p

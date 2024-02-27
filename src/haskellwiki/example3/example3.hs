@@ -1,5 +1,5 @@
 -- 参考: https://wiki.haskell.org/GHC/As_a_library
--- ＃ Running interactive statements」
+-- ＃ Running interactive statements
 
 import Control.Arrow ((&&&))
 import Control.Exception.Base (SomeException (..))
@@ -48,7 +48,7 @@ import Outputable
 import Panic (panic)
 
 targetFile :: String
-targetFile = "src/HaskellWiki/Example3/sample.hs"
+targetFile = "src/haskellwiki/example3/sample.hs"
 
 main :: IO ()
 main = do

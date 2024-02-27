@@ -16,7 +16,7 @@ import GHC
 import GHC.Paths (libdir)
 
 targetFile :: String
-targetFile = "src/HaskellWiki/Example1/test_main.hs"
+targetFile = "src/haskellwiki/example1/test_main.hs"
 
 main :: IO SuccessFlag
 main = defaultErrorHandler defaultFatalMessager defaultFlushOut $ do

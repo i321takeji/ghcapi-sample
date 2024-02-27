@@ -28,8 +28,8 @@ import Outputable (Outputable (ppr), showSDoc)
 import Panic (panic)
 import StgSyn (StgTopBinding)
 
-targetFile :: FilePath
-targetFile = "src/Stg/Example1/sample.hs"
+targetFile :: String
+targetFile = "src/stg/example1/sample.hs"
 
 main :: IO ()
 main = printStg
