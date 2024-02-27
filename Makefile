@@ -11,3 +11,4 @@ build-8.6.5: switch-8.6.5
 
 dist-clean:
 	stack clean --full --stack-yaml stack-v8.6.5.yaml
+	git clean -Xd -i
