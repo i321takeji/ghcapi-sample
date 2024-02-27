@@ -42,3 +42,14 @@ executables:
       - -rtsopts
       - -with-rtsopts=-N
       - -main-is A
+
+  haskellwiki-ex3:
+    main: Interactive.hs
+    source-dirs: src/HaskellWiki/Example3
+    dependencies:
+      - ghc
+      - ghc-paths
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N

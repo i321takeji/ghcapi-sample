@@ -30,7 +30,12 @@ GHC API の使い方をお勉強．
         {$trModule = Module (TrNameS "main"#) (TrNameS "B"#),
         main = print "Hello, World!"}
         ```
-    - [その3](/src/HaskellWiki/Example3/)
+    - [その3](/src/HaskellWiki/Example3/)：モジュール (`sample.hs`) をロードした後，GHCi のように対話的に文 (`mul (add 2 3) 4`) を実行
+        ```sh
+        $ stack run haskellwiki-ex3
+        20
+        20
+        ```
 - [Core を出力するだけ](/src/Core/Example1/) (対象ファイル [/src/Core/Example1/sample.hs](/src/Core/Example1/sample.hs))
     ```sh
     $ stack repl src/Core/Example1/Simple.hs
