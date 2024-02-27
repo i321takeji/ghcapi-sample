@@ -66,38 +66,35 @@ GHC API の使い方をお勉強．
     Safe
     ```
 - [STG を出力するだけ](/src/Stg/Example1/) (対象ファイル, [/src/Stg/Example1/sample.hs](/src/Stg/Example1/sample.hs))
-    ```bash
-    $ stack repl src/Core/Example1/Simple.hs
     ```
-    ```
-    *Stg.Example1.Simple> printStg
-    [sat_soEf :: forall p. p -> p
-    [LclId] =
-        [] \r [x] x;,
-    f :: forall p. p -> p
-    [LclIdX] =
-        [] \u [] sat_soEf;,
-    sat_soEi :: TrName
-    [LclId] =
-        CCS_DONT_CARE TrNameS! ["Foo"#];,
-    sat_soEh :: TrName
-    [LclId] =
-        CCS_DONT_CARE TrNameS! ["main"#];,
-    $trModule :: Module
-    [LclIdX] =
-        CCS_DONT_CARE Module! [sat_soEh sat_soEi];,
-    sat_soEx :: Integer
-    [LclId] =
-        [] \u []
-            let {
-            sat_soEw [Occ=Once] :: Integer
-            [LclId] =
-                CCCS S#! [10#];
-            } in  f sat_soEw;,
-    sat_soEk :: Integer -> IO ()
-    [LclId] =
-        [] \u [] print $fShowInteger;,
-    main :: IO ()
-    [LclIdX] =
-        [] \u [] $ sat_soEk sat_soEx;]
+    $ stack run stg-ex1
+    [sat_s2C2 :: forall p. p -> p
+     [LclId] =
+         [] \r [x] x;,
+     f :: forall p. p -> p
+     [LclIdX] =
+         [] \u [] sat_s2C2;,
+     sat_s2C5 :: TrName
+     [LclId] =
+         CCS_DONT_CARE TrNameS! ["Foo"#];,
+     sat_s2C4 :: TrName
+     [LclId] =
+         CCS_DONT_CARE TrNameS! ["main"#];,
+     $trModule :: Module
+     [LclIdX] =
+         CCS_DONT_CARE Module! [sat_s2C4 sat_s2C5];,
+     sat_s2Ck :: Integer
+     [LclId] =
+         [] \u []
+             let {
+               sat_s2Cj [Occ=Once] :: Integer
+               [LclId] =
+                   CCCS S#! [10#];
+             } in  f sat_s2Cj;,
+     sat_s2C7 :: Integer -> IO ()
+     [LclId] =
+         [] \u [] print $fShowInteger;,
+     main :: IO ()
+     [LclIdX] =
+         [] \u [] $ sat_s2C7 sat_s2Ck;]
     ```

@@ -64,3 +64,15 @@ executables:
       - -threaded
       - -rtsopts
       - -with-rtsopts=-N
+
+  stg-ex1:
+    main: Simple.hs
+    source-dirs: src/Stg/Example1
+    dependencies:
+      - ghc
+      - ghc-paths
+      - containers
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
