@@ -1,4 +1,4 @@
 resolver: lts-13.27 # ghc-8.6.5
 
 packages:
-  - .
+  - ./src/v8.6.5

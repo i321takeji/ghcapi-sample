@@ -29,7 +29,7 @@ import Panic (panic)
 import StgSyn (StgTopBinding)
 
 targetFile :: String
-targetFile = "src/stg/example1/sample.hs"
+targetFile = "data/example/target.hs"
 
 main :: IO ()
 main = printStg
