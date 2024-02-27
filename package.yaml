@@ -27,16 +27,16 @@ executables:
     main: example1.hs
     source-dirs: src/haskellwiki/example1
 
-  # haskellwiki-ex2:
-  #   main: A.hs
-  #   source-dirs: src/haskellwiki/example2
-  #   when:
-  #     - condition: false
-  #       other-modules: B
-  #   dependencies:
-  #     - ghc-boot-th
-  #   ghc-options:
-  #     - -main-is A
+  haskellwiki-ex2:
+    main: A.hs
+    source-dirs: src/haskellwiki/example2
+    when:
+      - condition: false
+        other-modules: B
+    dependencies:
+      - ghc-boot-th
+    ghc-options:
+      - -main-is A
 
   # haskellwiki-ex3:
   #   main: example3.hs
