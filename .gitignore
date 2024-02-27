@@ -1,5 +1,9 @@
+dist
+dist-*
 .stack-work/
 ghcapi-sample.cabal
 *~
 *.o
 *.hi
+*.bak
+src/haskellwiki/example1/test_main

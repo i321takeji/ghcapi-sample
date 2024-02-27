@@ -1,53 +1,53 @@
-name:                ghcapi-sample
-version:             0.1.0.0
-github:              "githubuser/ghcapi-sample"
-license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2019 Author name here"
+name: ghcapi-sample
+version: 0.1.0.0
+github: "githubuser/ghcapi-sample"
+license: BSD3
+author: "Author name here"
+maintainer: "example@example.com"
+copyright: "2019 Author name here"
 
 extra-source-files:
-- README.md
-- ChangeLog.md
+  - README.md
+  - ChangeLog.md
 
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/ghcapi-sample#readme>
+description: Please see the README on GitHub at <https://github.com/githubuser/ghcapi-sample#readme>
 
 dependencies:
-- base >= 4.7 && < 5
-
-library:
-  source-dirs: src
-  dependencies:
+  - base >= 4.7 && < 5
   - ghc
   - ghc-paths
-  - ghc-boot-th
-  - containers
+
+ghc-options:
+  - -Wall
+  - -Wcompat
+  - -Wredundant-constraints¶
 
 executables:
-  ghcapi-sample-exe:
-    main:                Main.hs
-    source-dirs:         app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - ghcapi-sample
+  haskellwiki-ex1:
+    main: example1.hs
+    source-dirs: src/haskellwiki/example1
 
-tests:
-  ghcapi-sample-test:
-    main:                Spec.hs
-    source-dirs:         test
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+  haskellwiki-ex2:
+    main: A.hs
+    source-dirs: src/haskellwiki/example2
+    when:
+      - condition: false
+        other-modules: B
     dependencies:
-    - ghcapi-sample
+      - ghc-boot-th
+    ghc-options:
+      - -main-is A
+
+  haskellwiki-ex3:
+    main: example3.hs
+    source-dirs: src/haskellwiki/example3
+
+  core-ex1:
+    main: example1.hs
+    source-dirs: src/core/example1
+
+  stg-ex1:
+    main: example1.hs
+    source-dirs: src/stg/example1
+    dependencies:
+      - containers

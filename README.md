@@ -11,96 +11,90 @@ GHC API の使い方をお勉強．
 ## サンプルと実行例
 
 - HaskellWiki に載っていたサンプル
-    - [その1](/src/HaskellWiki/Example1/)：`ghc --make` と同じことを行うプログラム
-    ```sh
-    $ stack repl src/HaskellWiki/Example1/Simple.hs 
+    - [その1](/src/haskellwiki/example1/example1.hs)：`ghc --make` と同じことを行うプログラム
+        ```sh
+        $ stack run haskellwiki-ex1
+        ```
+        ```sh
+        $ ./src/haskellwiki/example1/test_main
+        Hello GHC API!
+        ```
+    - [その2](/src/haskellwiki/example2/)：`parseModule`, `typecheckModule`, `desugarModule`, `getNamesInScope`, `getModuleGraph` を呼び出すプログラム
+        ```
+        $ stack run haskellwiki-ex2
+        module B where
+        main = print "Hello, World!"
+
+        -----
+
+        {$trModule = Module (TrNameS "main"#) (TrNameS "B"#),
+        main = print "Hello, World!"}
+        ```
+    - [その3](/src/haskellWiki/example3/example3.hs)：モジュール (`sample.hs`) をロードした後，GHCi のように対話的に文 (`mul (add 2 3) 4`) を実行
+        ```sh
+        $ stack run haskellwiki-ex3
+        20
+        20
+        ```
+- [Core を出力するだけ](/src/core/example1/example1.hs) (対象ファイル [/src/core/example1/sample.hs](/src/core/example1/sample.hs))
     ```
-    ```
-    *HaskellWiki.Example1.Simple> main
-    ```
-    ```sh
-    $ ./src/HaskellWiki/Example1/test_main
-    Hello GHC API!
-    ```
-    - [その2](/src/HaskellWiki/Example2/)：`parseModule`, `typecheckModule`, `desugarModule`, `getNamesInScope`, `getModuleGraph` を呼び出すプログラム
-    ```sh
-    $ stack repl src/HaskellWiki/Example2/A.hs 
-    ```
-    ```
-    *HaskellWiki.Example2.A> main
-    (module HaskellWiki.Example2.B where
-    main = print "Hello, World!",
-    [/, n, -, -, -, -, -, /, n],
-    {$trModule
-        = Module (TrNameS "main"#) (TrNameS "HaskellWiki.Example2.B"#),
-    main = print "Hello, World!"})
-    ```
-    - [その3](/src/HaskellWiki/Example3/)
-- [Core を出力するだけ](/src/Core/Example1/) (対象ファイル [/src/Core/Example1/sample.hs](/src/Core/Example1/sample.hs))
-    ```sh
-    $ stack repl src/Core/Example1/Simple.hs
-    ```
-    ```
-    *Core.Example1.Simple> printCoreModule
+    $ stack run core-ex1
     ==== cm_module :: !Module ====
     Foo
-
+    
     ==== cm_types :: !HscTypes.TypeEnv ====
-    [rn5W :-> Identifier ‘f’, rn5X :-> Identifier ‘main’,
-    rn5Y :-> Identifier ‘$trModule’]
-
+    [r1 :-> Identifier ‘f’, r2 :-> Identifier ‘main’,
+     r3 :-> Identifier ‘$trModule’]
+    
     ==== cm_binds :: CoreProgram ====
     [f :: forall p. p -> p
-    [LclIdX]
-    f = \ (@ p) (x :: p) -> x,
-    $trModule :: Module
-    [LclIdX]
-    $trModule = Module (TrNameS "main"#) (TrNameS "Foo"#),
-    main :: IO ()
-    [LclIdX]
-    main
-    = $ @ 'LiftedRep
-        @ Integer
-        @ (IO ())
-        (print @ Integer $fShowInteger)
-        (f @ Integer 10)]
-
+     [LclIdX]
+     f = \ (@ p) (x :: p) -> x,
+     $trModule :: Module
+     [LclIdX]
+     $trModule = Module (TrNameS "main"#) (TrNameS "Foo"#),
+     main :: IO ()
+     [LclIdX]
+     main
+       = $ @ 'LiftedRep
+           @ Integer
+           @ (IO ())
+           (print @ Integer $fShowInteger)
+           (f @ Integer 10)]
+    
     ==== cm_safe :: SafeHaskellMode ====
     Safe
     ```
-- [STG を出力するだけ](/src/Stg/Example1/) (対象ファイル, [/src/Stg/Example1/sample.hs](/src/Stg/Example1/sample.hs))
-    ```bash
-    $ stack repl src/Core/Example1/Simple.hs
+- [STG を出力するだけ](/src/stg/example1/example1.hs) (対象ファイル, [/src/stg/example1/sample.hs](/src/stg/example1/sample.hs))
     ```
-    ```
-    *Stg.Example1.Simple> printStg
-    [sat_soEf :: forall p. p -> p
-    [LclId] =
-        [] \r [x] x;,
-    f :: forall p. p -> p
-    [LclIdX] =
-        [] \u [] sat_soEf;,
-    sat_soEi :: TrName
-    [LclId] =
-        CCS_DONT_CARE TrNameS! ["Foo"#];,
-    sat_soEh :: TrName
-    [LclId] =
-        CCS_DONT_CARE TrNameS! ["main"#];,
-    $trModule :: Module
-    [LclIdX] =
-        CCS_DONT_CARE Module! [sat_soEh sat_soEi];,
-    sat_soEx :: Integer
-    [LclId] =
-        [] \u []
-            let {
-            sat_soEw [Occ=Once] :: Integer
-            [LclId] =
-                CCCS S#! [10#];
-            } in  f sat_soEw;,
-    sat_soEk :: Integer -> IO ()
-    [LclId] =
-        [] \u [] print $fShowInteger;,
-    main :: IO ()
-    [LclIdX] =
-        [] \u [] $ sat_soEk sat_soEx;]
+    $ stack run stg-ex1
+    [sat_s2C2 :: forall p. p -> p
+     [LclId] =
+         [] \r [x] x;,
+     f :: forall p. p -> p
+     [LclIdX] =
+         [] \u [] sat_s2C2;,
+     sat_s2C5 :: TrName
+     [LclId] =
+         CCS_DONT_CARE TrNameS! ["Foo"#];,
+     sat_s2C4 :: TrName
+     [LclId] =
+         CCS_DONT_CARE TrNameS! ["main"#];,
+     $trModule :: Module
+     [LclIdX] =
+         CCS_DONT_CARE Module! [sat_s2C4 sat_s2C5];,
+     sat_s2Ck :: Integer
+     [LclId] =
+         [] \u []
+             let {
+               sat_s2Cj [Occ=Once] :: Integer
+               [LclId] =
+                   CCCS S#! [10#];
+             } in  f sat_s2Cj;,
+     sat_s2C7 :: Integer -> IO ()
+     [LclId] =
+         [] \u [] print $fShowInteger;,
+     main :: IO ()
+     [LclIdX] =
+         [] \u [] $ sat_s2C7 sat_s2Ck;]
     ```
