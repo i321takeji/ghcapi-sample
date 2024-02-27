@@ -37,34 +37,31 @@ GHC API の使い方をお勉強．
         20
         ```
 - [Core を出力するだけ](/src/Core/Example1/) (対象ファイル [/src/Core/Example1/sample.hs](/src/Core/Example1/sample.hs))
-    ```sh
-    $ stack repl src/Core/Example1/Simple.hs
     ```
-    ```
-    *Core.Example1.Simple> printCoreModule
+    $ stack run core-ex1
     ==== cm_module :: !Module ====
     Foo
-
+    
     ==== cm_types :: !HscTypes.TypeEnv ====
-    [rn5W :-> Identifier ‘f’, rn5X :-> Identifier ‘main’,
-    rn5Y :-> Identifier ‘$trModule’]
-
+    [r1 :-> Identifier ‘f’, r2 :-> Identifier ‘main’,
+     r3 :-> Identifier ‘$trModule’]
+    
     ==== cm_binds :: CoreProgram ====
     [f :: forall p. p -> p
-    [LclIdX]
-    f = \ (@ p) (x :: p) -> x,
-    $trModule :: Module
-    [LclIdX]
-    $trModule = Module (TrNameS "main"#) (TrNameS "Foo"#),
-    main :: IO ()
-    [LclIdX]
-    main
-    = $ @ 'LiftedRep
-        @ Integer
-        @ (IO ())
-        (print @ Integer $fShowInteger)
-        (f @ Integer 10)]
-
+     [LclIdX]
+     f = \ (@ p) (x :: p) -> x,
+     $trModule :: Module
+     [LclIdX]
+     $trModule = Module (TrNameS "main"#) (TrNameS "Foo"#),
+     main :: IO ()
+     [LclIdX]
+     main
+       = $ @ 'LiftedRep
+           @ Integer
+           @ (IO ())
+           (print @ Integer $fShowInteger)
+           (f @ Integer 10)]
+    
     ==== cm_safe :: SafeHaskellMode ====
     Safe
     ```
