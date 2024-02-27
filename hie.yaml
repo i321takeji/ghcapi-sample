@@ -1,0 +1,14 @@
+cradle:
+  stack:
+    stackYaml: "stack-v8.6.5.yaml"
+    components:
+      - path: "src/v8.6.5/haskellwiki/example1/example1.hs"
+        component: "ghcapi-sample:exe:haskellwiki-ex1"
+      - path: "src/v8.6.5/haskellwiki/example2/A"
+        component: "ghcapi-sample:exe:haskellwiki-ex2"
+      - path: "src/v8.6.5/haskellwiki/example3/example3.hs"
+        component: "ghcapi-sample:exe:haskellwiki-ex3"
+      - path: "src/v8.6.5/core/example1/example1.hs"
+        component: "ghcapi-sample:exe:core-ex1"
+      - path: "src/v8.6.5/stg/example1/example1.hs"
+        component: "ghcapi-sample:exe:stg-ex1"
