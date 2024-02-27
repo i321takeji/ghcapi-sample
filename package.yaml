@@ -14,7 +14,7 @@ description: Please see the README on GitHub at <https://github.com/githubuser/g
 
 dependencies:
   - base >= 4.7 && < 5
-  - ghc
+  - ghc ^>= 9.8.1
   - ghc-paths
 
 ghc-options:
@@ -38,16 +38,16 @@ executables:
     ghc-options:
       - -main-is A
 
-  haskellwiki-ex3:
-    main: example3.hs
-    source-dirs: src/haskellwiki/example3
+  # haskellwiki-ex3:
+  #   main: example3.hs
+  #   source-dirs: src/haskellwiki/example3
 
-  core-ex1:
-    main: example1.hs
-    source-dirs: src/core/example1
+  # core-ex1:
+  #   main: example1.hs
+  #   source-dirs: src/core/example1
 
-  stg-ex1:
-    main: example1.hs
-    source-dirs: src/stg/example1
-    dependencies:
-      - containers
+  # stg-ex1:
+  #   main: example1.hs
+  #   source-dirs: src/stg/example1
+  #   dependencies:
+  #     - containers

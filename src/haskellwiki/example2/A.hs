@@ -1,11 +1,10 @@
 -- 参考: https://wiki.haskell.org/GHC/As_a_library
 -- # Another example
 
---A.hs
---invoke: ghci -package ghc A.hs
+-- A.hs
+-- invoke: ghci -package ghc A.hs
 module A where
 
-import DynFlags (defaultFatalMessager, defaultFlushOut, xopt_set)
 import GHC
   ( LoadHowMuch (LoadAllTargets),
     ParsedMod (parsedSource),
@@ -21,7 +20,6 @@ import GHC
     getSessionDynFlags,
     guessTarget,
     load,
-    loadModule,
     mgModSummaries,
     mkModuleName,
     parseModule,
@@ -31,12 +29,22 @@ import GHC
     showModule,
     typecheckModule,
   )
+import GHC.Driver.DynFlags
+  ( defaultFatalMessager,
+    defaultFlushOut,
+    xopt_set,
+  )
+import GHC.Driver.Ppr (showSDoc)
 import GHC.LanguageExtensions.Type
   ( Extension (Cpp, ImplicitPrelude, MagicHash),
   )
+import GHC.Linker.Loader (loadModule)
 import GHC.Paths (libdir)
---GHC.Paths is available via cabal install ghc-paths
-import Outputable (Outputable (ppr), showSDoc, text, vcat)
+import GHC.Utils.Outputable
+  ( IsDoc (vcat),
+    IsLine (text),
+    Outputable (ppr),
+  )
 
 targetFile :: String
 targetFile = "src/haskellwiki/example2/B.hs"
@@ -61,14 +69,14 @@ example =
               dflags
               [Cpp, ImplicitPrelude, MagicHash]
       setSessionDynFlags dflags'
-      target <- guessTarget targetFile Nothing
+      target <- guessTarget targetFile Nothing Nothing
       setTargets [target]
       load LoadAllTargets
       modSum <- getModSummary $ mkModuleName "B"
       p <- parseModule modSum
       t <- typecheckModule p
       d <- desugarModule t
-      l <- loadModule d
+      -- l <- loadModule d  ???
       n <- getNamesInScope
       c <- return $ coreModule d
 
