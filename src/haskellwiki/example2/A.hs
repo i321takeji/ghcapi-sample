@@ -7,13 +7,9 @@ module A where
 
 import DynFlags (defaultFatalMessager, defaultFlushOut, xopt_set)
 import GHC
-  ( GenLocated,
-    GhcPs,
-    HsModule,
-    LoadHowMuch (LoadAllTargets),
+  ( LoadHowMuch (LoadAllTargets),
     ParsedMod (parsedSource),
     ParsedSource,
-    SrcSpan,
     TypecheckedMod (typecheckedSource),
     TypecheckedSource,
     coreModule,
