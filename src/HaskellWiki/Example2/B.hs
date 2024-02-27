@@ -1,4 +1,7 @@
+-- 参考: https://wiki.haskell.org/GHC/As_a_library
+-- # Another example
+
 --B.hs
-module HaskellWiki.Example2.B where
+module B where
 
 main = print "Hello, World!"

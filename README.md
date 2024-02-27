@@ -20,18 +20,16 @@ GHC API の使い方をお勉強．
         Hello GHC API!
         ```
     - [その2](/src/HaskellWiki/Example2/)：`parseModule`, `typecheckModule`, `desugarModule`, `getNamesInScope`, `getModuleGraph` を呼び出すプログラム
-    ```sh
-    $ stack repl src/HaskellWiki/Example2/A.hs 
-    ```
-    ```
-    *HaskellWiki.Example2.A> main
-    (module HaskellWiki.Example2.B where
-    main = print "Hello, World!",
-    [/, n, -, -, -, -, -, /, n],
-    {$trModule
-        = Module (TrNameS "main"#) (TrNameS "HaskellWiki.Example2.B"#),
-    main = print "Hello, World!"})
-    ```
+        ```
+        $ stack run haskellwiki-ex2
+        module B where
+        main = print "Hello, World!"
+
+        -----
+
+        {$trModule = Module (TrNameS "main"#) (TrNameS "B"#),
+        main = print "Hello, World!"}
+        ```
     - [その3](/src/HaskellWiki/Example3/)
 - [Core を出力するだけ](/src/Core/Example1/) (対象ファイル [/src/Core/Example1/sample.hs](/src/Core/Example1/sample.hs))
     ```sh
