@@ -12,16 +12,13 @@ GHC API の使い方をお勉強．
 
 - HaskellWiki に載っていたサンプル
     - [その1](/src/HaskellWiki/Example1/)：`ghc --make` と同じことを行うプログラム
-    ```sh
-    $ stack repl src/HaskellWiki/Example1/Simple.hs 
-    ```
-    ```
-    *HaskellWiki.Example1.Simple> main
-    ```
-    ```sh
-    $ ./src/HaskellWiki/Example1/test_main
-    Hello GHC API!
-    ```
+        ```sh
+        $ stack run haskellwiki-ex1
+        ```
+        ```sh
+        $ ./src/HaskellWiki/Example1/test_main
+        Hello GHC API!
+        ```
     - [その2](/src/HaskellWiki/Example2/)：`parseModule`, `typecheckModule`, `desugarModule`, `getNamesInScope`, `getModuleGraph` を呼び出すプログラム
     ```sh
     $ stack repl src/HaskellWiki/Example2/A.hs 
