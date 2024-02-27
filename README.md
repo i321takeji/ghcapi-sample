@@ -8,6 +8,10 @@ GHC API の使い方をお勉強．
 - GHC API で型を表示 -- eagletmtの日記, https://haskell.g.hatena.ne.jp/eagletmt/20091012/1255349481
 - GHC API を使ってある型コンストラクタのデータコンストラクタを得る -- EAGLE 雑記, https://eagletmt.hatenadiary.org/entry/20111129/1322589884
 
+## サンプルのバージョン
+
+- [GHC API 8.6.5](https://hackage.haskell.org/package/ghc-8.6.5)
+
 ## サンプルと実行例
 
 - HaskellWiki に載っていたサンプル
@@ -30,7 +34,7 @@ GHC API の使い方をお勉強．
         {$trModule = Module (TrNameS "main"#) (TrNameS "B"#),
         main = print "Hello, World!"}
         ```
-    - [その3](/src/haskellWiki/example3/example3.hs)：モジュール (`sample.hs`) をロードした後，GHCi のように対話的に文 (`mul (add 2 3) 4`) を実行
+    - [その3](/src/haskellwiki/example3/example3.hs)：モジュール (`sample.hs`) をロードした後，GHCi のように対話的に文 (`mul (add 2 3) 4`) を実行
         ```sh
         $ stack run haskellwiki-ex3
         20
