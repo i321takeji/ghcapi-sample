@@ -1,7 +1,6 @@
 -- 参考: https://wiki.haskell.org/GHC/As_a_library
 -- # A Simple Example
 
-import DynFlags (defaultFatalMessager, defaultFlushOut)
 import GHC
   ( LoadHowMuch (LoadAllTargets),
     SuccessFlag,
@@ -13,6 +12,10 @@ import GHC
     setSessionDynFlags,
     setTargets,
   )
+import GHC.Driver.DynFlags
+  ( defaultFatalMessager,
+    defaultFlushOut,
+  )
 import GHC.Paths (libdir)
 
 targetFile :: String
@@ -23,6 +26,6 @@ main = defaultErrorHandler defaultFatalMessager defaultFlushOut $ do
   runGhc (Just libdir) $ do
     dflags <- getSessionDynFlags
     setSessionDynFlags dflags
-    target <- guessTarget targetFile Nothing
+    target <- guessTarget targetFile Nothing Nothing
     setTargets [target]
     load LoadAllTargets
