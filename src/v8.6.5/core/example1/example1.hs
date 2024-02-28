@@ -9,7 +9,7 @@ import GHC.Paths (libdir)
 import Outputable (Outputable (ppr), showSDoc)
 
 targetFile :: String
-targetFile = "src/core/example1/sample.hs"
+targetFile = "data/example/target.hs"
 
 main :: IO ()
 main = printCoreModule

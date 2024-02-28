@@ -39,7 +39,7 @@ import GHC.Paths (libdir)
 import Outputable (Outputable (ppr), showSDoc, text, vcat)
 
 targetFile :: String
-targetFile = "src/haskellwiki/example2/B.hs"
+targetFile = "data/haskellwiki/example2/B.hs"
 
 main :: IO ()
 main = do

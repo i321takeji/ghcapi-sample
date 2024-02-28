@@ -48,7 +48,7 @@ import Outputable
 import Panic (panic)
 
 targetFile :: String
-targetFile = "src/haskellwiki/example3/sample.hs"
+targetFile = "data/haskellwiki/example3/sample.hs"
 
 main :: IO ()
 main = do
